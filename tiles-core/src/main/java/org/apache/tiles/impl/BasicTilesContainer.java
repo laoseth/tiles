@@ -236,6 +236,10 @@ public class BasicTilesContainer implements TilesContainer,
 
         try {
             render(request, subContext);
+        }catch(RuntimeException e) {
+        	//log here, as finally can throw errors as well, and the original error gets lost
+       		log.error("Error rendering definition {}",definition,e);
+        	throw e;
         } finally {
             popContext(request);
         }

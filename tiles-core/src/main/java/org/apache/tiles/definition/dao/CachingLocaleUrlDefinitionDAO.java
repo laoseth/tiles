@@ -169,7 +169,7 @@ public class CachingLocaleUrlDefinitionDAO extends BaseLocaleUrlDefinitionDAO
     protected synchronized Map<String, Definition> checkAndloadDefinitions(Locale customizationKey) {
         Map<String, Definition> existingDefinitions = locale2definitionMap.get(customizationKey);
         boolean definitionsAlreadyLoaded = existingDefinitions != null;
-        if (definitionsAlreadyLoaded) {
+        if (definitionsAlreadyLoaded && !checkRefresh) {
             return existingDefinitions;
         }
         if (checkRefresh && refreshRequired()) {

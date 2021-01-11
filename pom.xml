@@ -26,14 +26,14 @@
     <parent>
         <artifactId>tiles-master</artifactId>
         <groupId>org.apache.tiles</groupId>
-        <version>6</version>
+        <version>7</version>
         <relativePath />
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.apache.tiles</groupId>
     <artifactId>tiles-parent</artifactId>
-    <version>3.0.9-SNAPSHOT</version>
+    <version>3.0.9-ICAT</version>
     <packaging>pom</packaging>
     <name>Tiles 3</name>
     <description>Tiles 3: A framework for page composition.</description>
@@ -73,6 +73,18 @@
             <id>apache-site</id>
             <url>scm:svn:https://svn.apache.org/repos/asf/tiles/site/staging/framework</url>
         </site>
+		<repository>
+			<uniqueVersion>false</uniqueVersion>
+			<id>icat-repo</id>
+			<name>Icat Released Artifacts</name>
+			<url>http://mavenrepo.icat.com/artifactory/icat-thirdparty/</url>
+		</repository>
+		<snapshotRepository>
+			<uniqueVersion>true</uniqueVersion>
+			<id>icat-repo-snapshot</id>
+			<name>Icat Artifacts Snapshot</name>
+			<url>http://mavenrepo.icat.com/artifactory/icat-thirdparty/</url>
+		</snapshotRepository>
     </distributionManagement>
     <dependencyManagement>
         <dependencies>
@@ -217,12 +229,12 @@
             <dependency>
             	<groupId>org.slf4j</groupId>
             	<artifactId>slf4j-api</artifactId>
-            	<version>1.7.6</version>
+            	<version>1.7.25</version>
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>jcl-over-slf4j</artifactId>
-                <version>1.7.6</version>
+                <version>1.7.25</version>
                 <optional>true</optional>
             </dependency>
             <dependency>
@@ -323,7 +335,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-simple</artifactId>
-            <version>1.5.8</version>
+            <version>1.7.25</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
