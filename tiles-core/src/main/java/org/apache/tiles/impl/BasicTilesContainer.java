@@ -236,12 +236,12 @@ public class BasicTilesContainer implements TilesContainer,
 
         try {
             render(request, subContext);
-        }catch(RuntimeException e) {
-        	//log here, as finally can throw errors as well, and the original error gets lost
-       		log.error("Error rendering definition {}",definition,e);
-        	throw e;
         } finally {
-            popContext(request);
+        	if(!getContextStack(request).isEmpty()) {//Avoid throwing an error, when a user double-clicks/resets/aborts a connection
+        		popContext(request);
+        	}else {
+        		log.info("Was asked to pop context when the context was empty on {}. This happens when the connection is reset, but can also be a programming errror",definition);
+        	}
         }
     }
 
